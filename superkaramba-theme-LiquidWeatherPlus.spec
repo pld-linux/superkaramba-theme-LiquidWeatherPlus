@@ -1,16 +1,16 @@
-#$Revision: 1.9 $,  $Date: 2005-02-08 19:18:33 $
+#$Revision: 1.10 $,  $Date: 2005-03-05 15:15:35 $
 
 %define		theme	LiquidWeatherPlus
 
 Summary:	superkaramba - LiquidWeatherPlus theme
 Summary(pl):	superkaramba - motyw LiquidWeatherPlus
 Name:		superkaramba-theme-%{theme}
-Version:	3.6
+Version:	3.7
 Release:	1
 License:	GPL
 Group:		Themes
 Source0:	http://www.message.co.nz/~matt-sarah/lwp-%{version}.tar.bz2
-# Source0-md5:	f10827e1b03fd4a6ac0a55b7c7519f2c
+# Source0-md5:	ff1e63e67082f0ea043b4d8c6e10bafc
 URL:		http://www.message.co.nz/~matt-sarah/
 Requires:	superkaramba >= 0.35
 BuildArch:	noarch
