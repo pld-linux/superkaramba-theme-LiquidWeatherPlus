@@ -1,4 +1,4 @@
-#$Revision: 1.7 $,  $Date: 2005-02-07 21:08:18 $
+#$Revision: 1.8 $,  $Date: 2005-02-07 22:57:13 $
 
 %define		theme	LiquidWeatherPlus
 
@@ -15,6 +15,10 @@ URL:		http://www.message.co.nz/~matt-sarah/
 Requires:	superkaramba >= 0.35
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
+%define _liquiddir /themes/superkaramba/liquid_weather_plus
+ #directory in rpm
+%define _lwp liquid_weather_plus
+ #directory in source
 
 %description
 LiquidWeatherPlus theme for superkaramba. Features:
@@ -45,45 +49,40 @@ Motyw LiquidWeatherPlus do superkaramby. Wy¶wietlane informacje:
  - Widok z 5 kamer internetowych 
  - Wszystkie dane uaktualniane s± co 1, 2 lub 3 godziny
  - Ró¿ne rodzaje t³a oraz motywy ikon 
- - Graficzna konfiguracja wszystkiego przez menu konfiguracyjne
+ - Graficzna konfiguracja przez menu konfiguracyjne
 
 %prep
 %setup -q -c
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT%{_datadir}/themes/superkaramba/liquid_weather_plus \
-	$RPM_BUILD_ROOT%{_datadir}/themes/superkaramba/liquid_weather_plus/{background,fonts,translations} \
-	$RPM_BUILD_ROOT%{_datadir}/themes/superkaramba/liquid_weather_plus/icons/flat/{large_icons,small_icons} \
-	$RPM_BUILD_ROOT%{_datadir}/themes/superkaramba/liquid_weather_plus/icons/liquid/{large_icons,small_icons} \
-	$RPM_BUILD_ROOT%{_datadir}/themes/superkaramba/liquid_weather_plus/icons/um/{large_icons,small_icons} \
-	$RPM_BUILD_ROOT%{_datadir}/themes/superkaramba/liquid_weather_plus/icons/weather.com/{large_icons,small_icons} \
-	$RPM_BUILD_ROOT%{_datadir}/themes/superkaramba/liquid_weather_plus/wind_icons/flat/{medium,weak,strong} \
-	$RPM_BUILD_ROOT%{_datadir}/themes/superkaramba/liquid_weather_plus/wind_icons/liquid/{medium,weak,strong} \
+install -d $RPM_BUILD_ROOT%{_datadir}%{_liquiddir} \
+	$RPM_BUILD_ROOT%{_datadir}%{_liquiddir}/{background,fonts,translations} \
+	$RPM_BUILD_ROOT%{_datadir}%{_liquiddir}/icons/{flat,liquid,um,weather.com}/{large_icons,small_icons} \
+	$RPM_BUILD_ROOT%{_datadir}%{_liquiddir}/wind_icons/{flat,liquid}/{medium,strong,weak} 
+#clean vim temorary files left by autor
+rm %{_lwp}/*~
+install %{_lwp}/*.* $RPM_BUILD_ROOT%{_datadir}%{_liquiddir}
+install %{_lwp}/fonts/*.ttf $RPM_BUILD_ROOT%{_datadir}%{_liquiddir}/fonts
+install %{_lwp}/background/*.png $RPM_BUILD_ROOT%{_datadir}%{_liquiddir}/background
+install %{_lwp}/translations/* 	$RPM_BUILD_ROOT%{_datadir}%{_liquiddir}/translations
 
-install liquid_weather_plus/*.* $RPM_BUILD_ROOT%{_datadir}/themes/superkaramba/liquid_weather_plus
-install liquid_weather_plus/background/*.png $RPM_BUILD_ROOT%{_datadir}/themes/superkaramba/liquid_weather_plus/background
-install liquid_weather_plus/fonts/*.ttf $RPM_BUILD_ROOT%{_datadir}/themes/superkaramba/liquid_weather_plus/fonts
-install liquid_weather_plus/translations/* $RPM_BUILD_ROOT%{_datadir}/themes/superkaramba/liquid_weather_plus/translations
-install liquid_weather_plus/icons/flat/large_icons/*.png $RPM_BUILD_ROOT%{_datadir}/themes/superkaramba/liquid_weather_plus/icons/flat/large_icons
-install liquid_weather_plus/icons/flat/small_icons/*.png $RPM_BUILD_ROOT%{_datadir}/themes/superkaramba/liquid_weather_plus/icons/flat/small_icons
-install liquid_weather_plus/icons/liquid/large_icons/*.png $RPM_BUILD_ROOT%{_datadir}/themes/superkaramba/liquid_weather_plus/icons/liquid/large_icons
-install liquid_weather_plus/icons/liquid/small_icons/*.png $RPM_BUILD_ROOT%{_datadir}/themes/superkaramba/liquid_weather_plus/icons/liquid/small_icons
-install liquid_weather_plus/icons/um/large_icons/*.png $RPM_BUILD_ROOT%{_datadir}/themes/superkaramba/liquid_weather_plus/icons/um/large_icons
-install liquid_weather_plus/icons/um/small_icons/*.png $RPM_BUILD_ROOT%{_datadir}/themes/superkaramba/liquid_weather_plus/icons/um/small_icons
-install liquid_weather_plus/icons/weather.com/large_icons/*.png $RPM_BUILD_ROOT%{_datadir}/themes/superkaramba/liquid_weather_plus/icons/weather.com/large_icons
-install liquid_weather_plus/icons/weather.com/small_icons/*.png $RPM_BUILD_ROOT%{_datadir}/themes/superkaramba/liquid_weather_plus/icons/weather.com/small_icons
-install liquid_weather_plus/wind_icons/flat/medium/*.png $RPM_BUILD_ROOT%{_datadir}/themes/superkaramba/liquid_weather_plus/wind_icons/flat/medium
-install liquid_weather_plus/wind_icons/flat/strong/*.png $RPM_BUILD_ROOT%{_datadir}/themes/superkaramba/liquid_weather_plus/wind_icons/flat/strong
-install liquid_weather_plus/wind_icons/flat/weak/*.png $RPM_BUILD_ROOT%{_datadir}/themes/superkaramba/liquid_weather_plus/wind_icons/flat/weak
-install liquid_weather_plus/wind_icons/liquid/medium/*.png $RPM_BUILD_ROOT%{_datadir}/themes/superkaramba/liquid_weather_plus/wind_icons/liquid/medium
-install liquid_weather_plus/wind_icons/liquid/strong/*.png $RPM_BUILD_ROOT%{_datadir}/themes/superkaramba/liquid_weather_plus/wind_icons/liquid/strong
-install liquid_weather_plus/wind_icons/liquid/weak/*.png $RPM_BUILD_ROOT%{_datadir}/themes/superkaramba/liquid_weather_plus/wind_icons/liquid/weak
+for www in {flat,liquid,um,weather.com};
+ do
+install %{_lwp}/icons/$www/large_icons/*.png $RPM_BUILD_ROOT%{_datadir}%{_liquiddir}/icons/$www/large_icons
+install %{_lwp}/icons/$www/small_icons/*.png $RPM_BUILD_ROOT%{_datadir}%{_liquiddir}/icons/$www/small_icons
+done
+
+for www in {medium,strong,weak};
+ do
+install %{_lwp}/wind_icons/flat/$www/*.png $RPM_BUILD_ROOT%{_datadir}%{_liquiddir}/wind_icons/flat/$www
+install %{_lwp}/wind_icons/liquid/$www/*.png $RPM_BUILD_ROOT%{_datadir}%{_liquiddir}/wind_icons/liquid/$www
+done
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files 
 %defattr(644,root,root,755)
-#%dir %{_datadir}/themes/superkaramba/liquid_weather_plus
-%{_datadir}/themes/superkaramba/liquid_weather_plus/
+#%dir %{_datadir}{_liquiddir}
+%{_datadir}%{_liquiddir}/
