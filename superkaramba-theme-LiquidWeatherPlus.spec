@@ -1,4 +1,4 @@
-#$Revision: 1.1 $,  $Date: 2005-01-05 14:39:33 $
+#$Revision: 1.2 $,  $Date: 2005-01-05 22:23:39 $
 
 %define		theme	LiquidWeatherPlus
 
@@ -18,11 +18,15 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
 LiquidWeatherPlus theme for superkaramba. Features:
- - Weather forecasts from weather.com or BBC for most cities worldwide.
+ - Weather forecasts from weather.com or BBC for most cities
+   worldwide.
  - Details of current conditions.
- - Daily forecasts and weather details for today and the following 4 days.
- - Hourly forecasts for the next 12 hours, if using weather.com as a data source.
- - All sorts of different weather maps for all major world regions, including antarctica.
+ - Daily forecasts and weather details for today and the following 4
+   days.
+ - Hourly forecasts for the next 12 hours, if using weather.com as a
+   data source.
+ - All sorts of different weather maps for all major world regions,
+   including Antarctica.
  - View up to 5 web cams.
  - All data updates automatically every 1, 2 or 3 hours.
  - Multiple background and icon themes.
@@ -32,9 +36,12 @@ LiquidWeatherPlus theme for superkaramba. Features:
 Motyw LiquidWeatherPlus do superkaramby. Wy¶wietlane informacje:
  - Prognoza pogody z weather.com oraz BBC z wiêkszo¶ci miast ¶wiata.
  - Warunki pogodowe.
- - Zapowied¼ pogody oraz szczególy dla aktualnego dnia oraz nastêpnych czterech dni
- - Przewidywanie pogody dla nastêpnych 12 godzin, je¿eli u¿ywamy weather.com jako ¼ród³o danych 
- - Wszystkie rodzaje róznych map pogody dla wszystkich wa¿niejszych rejonów, równie¿ antarktyki 
+ - Zapowied¼ pogody oraz szczególy dla aktualnego dnia oraz nastêpnych
+   czterech dni
+ - Przewidywanie pogody dla nastêpnych 12 godzin, je¿eli u¿ywamy
+   weather.com jako ¼ród³o danych 
+ - Wszystkie rodzaje ró¿nych map pogody dla wszystkich wa¿niejszych
+   rejonów, równie¿ Antarktyki 
  - Widok z 5 kamer internetowych 
  - Wszystkie dane uaktualniane s± co 1, 2 lub 3 godziny
  - Ró¿ne rodzaje t³a oraz motywy ikon 
