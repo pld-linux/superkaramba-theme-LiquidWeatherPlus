@@ -1,16 +1,16 @@
-#$Revision: 1.13 $,  $Date: 2005-03-13 18:19:17 $
+#$Revision: 1.14 $,  $Date: 2005-03-19 12:04:04 $
 
 %define		theme	LiquidWeatherPlus
 
 Summary:	superkaramba - LiquidWeatherPlus theme
 Summary(pl):	superkaramba - motyw LiquidWeatherPlus
 Name:		superkaramba-theme-%{theme}
-Version:	3.8.1
+Version:	3.9
 Release:	1
 License:	GPL
 Group:		Themes
 Source0:	http://www.message.co.nz/~matt-sarah/lwp-%{version}.tar.bz2
-# Source0-md5:	aeee88fb10e7eed183bebd080df0758d
+# Source0-md5:	bf25402ae6f1cd5b0fe23a7d01007169
 URL:		http://www.message.co.nz/~matt-sarah/
 Requires:	superkaramba >= 0.35
 BuildArch:	noarch
@@ -57,15 +57,16 @@ Motyw LiquidWeatherPlus do superkaramby. Wy¶wietlane informacje:
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_datadir}%{_liquiddir} \
-	$RPM_BUILD_ROOT%{_datadir}%{_liquiddir}/{background,fonts,translations} \
+	$RPM_BUILD_ROOT%{_datadir}%{_liquiddir}/{background,earthquake,fonts,readme{,/images},translations} \
 	$RPM_BUILD_ROOT%{_datadir}%{_liquiddir}/icons/{flat,liquid,um,weather.com}/{large_icons,small_icons} \
 	$RPM_BUILD_ROOT%{_datadir}%{_liquiddir}/wind_icons/{flat,liquid}/{medium,strong,weak} 
-#clean vim temorary files left by autor
-rm %{_lwp}/*~
-install %{_lwp}/*.* $RPM_BUILD_ROOT%{_datadir}%{_liquiddir}
-install %{_lwp}/fonts/*.ttf $RPM_BUILD_ROOT%{_datadir}%{_liquiddir}/fonts
+install %{_lwp}/*.{html,log,py*,png,theme,txt} $RPM_BUILD_ROOT%{_datadir}%{_liquiddir}
 install %{_lwp}/background/*.png $RPM_BUILD_ROOT%{_datadir}%{_liquiddir}/background
-install %{_lwp}/translations/* 	$RPM_BUILD_ROOT%{_datadir}%{_liquiddir}/translations
+install %{_lwp}/earthquake/*.{html,css} $RPM_BUILD_ROOT%{_datadir}%{_liquiddir}/earthquake
+install %{_lwp}/fonts/*.ttf $RPM_BUILD_ROOT%{_datadir}%{_liquiddir}/fonts
+install %{_lwp}/readme/*.{html,css} $RPM_BUILD_ROOT%{_datadir}%{_liquiddir}/readme
+install %{_lwp}/readme/images/*.jpg $RPM_BUILD_ROOT%{_datadir}%{_liquiddir}/readme/images
+install %{_lwp}/translations/* $RPM_BUILD_ROOT%{_datadir}%{_liquiddir}/translations
 
 for www in {flat,liquid,um,weather.com};
  do
@@ -84,5 +85,5 @@ rm -rf $RPM_BUILD_ROOT
 
 %files 
 %defattr(644,root,root,755)
-#%dir %{_datadir}{_liquiddir}
+
 %{_datadir}%{_liquiddir}/
