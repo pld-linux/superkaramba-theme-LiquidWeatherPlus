@@ -1,4 +1,4 @@
-#$Revision: 1.3 $,  $Date: 2005-01-22 22:02:02 $
+#$Revision: 1.4 $,  $Date: 2005-01-24 22:37:50 $
 
 %define		theme	LiquidWeatherPlus
 
@@ -6,7 +6,7 @@ Summary:	superkaramba - LiquidWeatherPlus theme
 Summary(pl):	superkaramba - motyw LiquidWeatherPlus
 Name:		superkaramba-theme-%{theme}
 Version:	3.4.4
-Release:	1
+Release:	2
 License:	GPL
 Group:		Themes
 Source0:	http://www.message.co.nz/~matt-sarah/lwp-%{version}.tar.bz2
@@ -53,7 +53,7 @@ Motyw LiquidWeatherPlus do superkaramby. Wy¶wietlane informacje:
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_datadir}/themes/superkaramba/liquid_weather_plus \
-	$RPM_BUILD_ROOT%{_datadir}/themes/superkaramba/liquid_weather_plus/{background,fonts} \
+	$RPM_BUILD_ROOT%{_datadir}/themes/superkaramba/liquid_weather_plus/{background,fonts,translations} \
 	$RPM_BUILD_ROOT%{_datadir}/themes/superkaramba/liquid_weather_plus/icons/flat/{large_icons,small_icons} \
 	$RPM_BUILD_ROOT%{_datadir}/themes/superkaramba/liquid_weather_plus/icons/liquid/{large_icons,small_icons} \
 	$RPM_BUILD_ROOT%{_datadir}/themes/superkaramba/liquid_weather_plus/icons/um/{large_icons,small_icons} \
@@ -64,6 +64,7 @@ install -d $RPM_BUILD_ROOT%{_datadir}/themes/superkaramba/liquid_weather_plus \
 install liquid_weather_plus/*.* $RPM_BUILD_ROOT%{_datadir}/themes/superkaramba/liquid_weather_plus
 install liquid_weather_plus/background/*.png $RPM_BUILD_ROOT%{_datadir}/themes/superkaramba/liquid_weather_plus/background
 install liquid_weather_plus/fonts/*.ttf $RPM_BUILD_ROOT%{_datadir}/themes/superkaramba/liquid_weather_plus/fonts
+install liquid_weather_plus/translations/* $RPM_BUILD_ROOT%{_datadir}/themes/superkaramba/liquid_weather_plus/translations
 install liquid_weather_plus/icons/flat/large_icons/*.png $RPM_BUILD_ROOT%{_datadir}/themes/superkaramba/liquid_weather_plus/icons/flat/large_icons
 install liquid_weather_plus/icons/flat/small_icons/*.png $RPM_BUILD_ROOT%{_datadir}/themes/superkaramba/liquid_weather_plus/icons/flat/small_icons
 install liquid_weather_plus/icons/liquid/large_icons/*.png $RPM_BUILD_ROOT%{_datadir}/themes/superkaramba/liquid_weather_plus/icons/liquid/large_icons
@@ -87,6 +88,7 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{_datadir}/themes/superkaramba/liquid_weather_plus
 %dir %{_datadir}/themes/superkaramba/liquid_weather_plus/background
 %dir %{_datadir}/themes/superkaramba/liquid_weather_plus/fonts
+%dir %{_datadir}/themes/superkaramba/liquid_weather_plus/translations
 %dir %{_datadir}/themes/superkaramba/liquid_weather_plus/icons/flat/large_icons
 %dir %{_datadir}/themes/superkaramba/liquid_weather_plus/icons/flat/small_icons
 %dir %{_datadir}/themes/superkaramba/liquid_weather_plus/icons/liquid/large_icons
@@ -112,6 +114,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/themes/superkaramba/liquid_weather_plus/*.html
 %{_datadir}/themes/superkaramba/liquid_weather_plus/background/*
 %{_datadir}/themes/superkaramba/liquid_weather_plus/fonts/*
+%{_datadir}/themes/superkaramba/liquid_weather_plus/translations/*
 %{_datadir}/themes/superkaramba/liquid_weather_plus/icons/flat/large_icons/*
 %{_datadir}/themes/superkaramba/liquid_weather_plus/icons/flat/small_icons/*
 %{_datadir}/themes/superkaramba/liquid_weather_plus/icons/liquid/large_icons/*
