@@ -1,18 +1,18 @@
-#$Revision: 1.4 $,  $Date: 2005-01-24 22:37:50 $
+#$Revision: 1.5 $,  $Date: 2005-02-06 00:41:33 $
 
 %define		theme	LiquidWeatherPlus
 
 Summary:	superkaramba - LiquidWeatherPlus theme
 Summary(pl):	superkaramba - motyw LiquidWeatherPlus
 Name:		superkaramba-theme-%{theme}
-Version:	3.4.4
-Release:	2
+Version:	3.5.2
+Release:	1
 License:	GPL
 Group:		Themes
 Source0:	http://www.message.co.nz/~matt-sarah/lwp-%{version}.tar.bz2
-# Source0-md5: 	5e3b5b9edd35d20e035a827aa6f1d793
+# Source0-md5:	0bf698f803afd600d6d6adc776d56af0
 URL:		http://kde-look.org/content/show.php?content=6384
-Requires:	superkaramba
+Requires:	superkaramba >= 0.35
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -109,8 +109,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/themes/superkaramba/liquid_weather_plus/*.txt
 %{_datadir}/themes/superkaramba/liquid_weather_plus/*.py*
 %{_datadir}/themes/superkaramba/liquid_weather_plus/*.theme
-#%{_datadir}/themes/superkaramba/liquid_weather_plus/*.timings
-#%{_datadir}/themes/superkaramba/liquid_weather_plus/*.patch
+%{_datadir}/themes/superkaramba/liquid_weather_plus/*.log
 %{_datadir}/themes/superkaramba/liquid_weather_plus/*.html
 %{_datadir}/themes/superkaramba/liquid_weather_plus/background/*
 %{_datadir}/themes/superkaramba/liquid_weather_plus/fonts/*
