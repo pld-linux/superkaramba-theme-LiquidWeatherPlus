@@ -1,4 +1,4 @@
-#$Revision: 1.8 $,  $Date: 2005-02-07 22:57:13 $
+#$Revision: 1.9 $,  $Date: 2005-02-08 19:18:33 $
 
 %define		theme	LiquidWeatherPlus
 
@@ -41,15 +41,15 @@ Motyw LiquidWeatherPlus do superkaramby. Wy¶wietlane informacje:
  - Prognoza pogody z weather.com oraz BBC z wiêkszo¶ci miast ¶wiata.
  - Warunki pogodowe.
  - Zapowied¼ pogody oraz szczególy dla aktualnego dnia oraz nastêpnych
-   czterech dni
+   czterech dni.
  - Przewidywanie pogody dla nastêpnych 12 godzin, je¿eli u¿ywamy
-   weather.com jako ¼ród³o danych 
+   weather.com jako ¼ród³o danych.
  - Wszystkie rodzaje ró¿nych map pogody dla wszystkich wa¿niejszych
-   rejonów, równie¿ Antarktyki 
- - Widok z 5 kamer internetowych 
- - Wszystkie dane uaktualniane s± co 1, 2 lub 3 godziny
- - Ró¿ne rodzaje t³a oraz motywy ikon 
- - Graficzna konfiguracja przez menu konfiguracyjne
+   rejonów, równie¿ Antarktyki.
+ - Widok z 5 kamer internetowych.
+ - Wszystkie dane uaktualniane s± co 1, 2 lub 3 godziny.
+ - Ró¿ne rodzaje t³a oraz motywy ikon.
+ - Graficzna konfiguracja przez menu konfiguracyjne.
 
 %prep
 %setup -q -c
