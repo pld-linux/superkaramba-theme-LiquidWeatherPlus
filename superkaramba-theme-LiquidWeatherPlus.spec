@@ -1,4 +1,4 @@
-#$Revision: 1.6 $,  $Date: 2005-02-06 00:58:39 $
+#$Revision: 1.7 $,  $Date: 2005-02-07 21:08:18 $
 
 %define		theme	LiquidWeatherPlus
 
@@ -85,46 +85,5 @@ rm -rf $RPM_BUILD_ROOT
 
 %files 
 %defattr(644,root,root,755)
-%dir %{_datadir}/themes/superkaramba/liquid_weather_plus
-%dir %{_datadir}/themes/superkaramba/liquid_weather_plus/background
-%dir %{_datadir}/themes/superkaramba/liquid_weather_plus/fonts
-%dir %{_datadir}/themes/superkaramba/liquid_weather_plus/translations
-%dir %{_datadir}/themes/superkaramba/liquid_weather_plus/icons/flat/large_icons
-%dir %{_datadir}/themes/superkaramba/liquid_weather_plus/icons/flat/small_icons
-%dir %{_datadir}/themes/superkaramba/liquid_weather_plus/icons/liquid/large_icons
-%dir %{_datadir}/themes/superkaramba/liquid_weather_plus/icons/liquid/small_icons
-%dir %{_datadir}/themes/superkaramba/liquid_weather_plus/icons/um/large_icons
-%dir %{_datadir}/themes/superkaramba/liquid_weather_plus/icons/um/small_icons
-%dir %{_datadir}/themes/superkaramba/liquid_weather_plus/icons/weather.com/large_icons
-%dir %{_datadir}/themes/superkaramba/liquid_weather_plus/icons/weather.com/small_icons
-%dir %{_datadir}/themes/superkaramba/liquid_weather_plus/wind_icons/flat
-%dir %{_datadir}/themes/superkaramba/liquid_weather_plus/wind_icons/flat/medium
-%dir %{_datadir}/themes/superkaramba/liquid_weather_plus/wind_icons/flat/strong
-%dir %{_datadir}/themes/superkaramba/liquid_weather_plus/wind_icons/flat/weak
-%dir %{_datadir}/themes/superkaramba/liquid_weather_plus/wind_icons/liquid
-%dir %{_datadir}/themes/superkaramba/liquid_weather_plus/wind_icons/liquid/medium
-%dir %{_datadir}/themes/superkaramba/liquid_weather_plus/wind_icons/liquid/strong
-%dir %{_datadir}/themes/superkaramba/liquid_weather_plus/wind_icons/liquid/weak
-%{_datadir}/themes/superkaramba/liquid_weather_plus/*.png
-%{_datadir}/themes/superkaramba/liquid_weather_plus/*.txt
-%{_datadir}/themes/superkaramba/liquid_weather_plus/*.py*
-%{_datadir}/themes/superkaramba/liquid_weather_plus/*.theme
-%{_datadir}/themes/superkaramba/liquid_weather_plus/*.log
-%{_datadir}/themes/superkaramba/liquid_weather_plus/*.html
-%{_datadir}/themes/superkaramba/liquid_weather_plus/background/*
-%{_datadir}/themes/superkaramba/liquid_weather_plus/fonts/*
-%{_datadir}/themes/superkaramba/liquid_weather_plus/translations/*
-%{_datadir}/themes/superkaramba/liquid_weather_plus/icons/flat/large_icons/*
-%{_datadir}/themes/superkaramba/liquid_weather_plus/icons/flat/small_icons/*
-%{_datadir}/themes/superkaramba/liquid_weather_plus/icons/liquid/large_icons/*
-%{_datadir}/themes/superkaramba/liquid_weather_plus/icons/liquid/small_icons/*
-%{_datadir}/themes/superkaramba/liquid_weather_plus/icons/um/large_icons/*
-%{_datadir}/themes/superkaramba/liquid_weather_plus/icons/um/small_icons/*
-%{_datadir}/themes/superkaramba/liquid_weather_plus/icons/weather.com/large_icons/*
-%{_datadir}/themes/superkaramba/liquid_weather_plus/icons/weather.com/small_icons/*
-%{_datadir}/themes/superkaramba/liquid_weather_plus/wind_icons/flat/medium/*
-%{_datadir}/themes/superkaramba/liquid_weather_plus/wind_icons/flat/strong/*
-%{_datadir}/themes/superkaramba/liquid_weather_plus/wind_icons/flat/weak/*
-%{_datadir}/themes/superkaramba/liquid_weather_plus/wind_icons/liquid/medium/*
-%{_datadir}/themes/superkaramba/liquid_weather_plus/wind_icons/liquid/strong/*
-%{_datadir}/themes/superkaramba/liquid_weather_plus/wind_icons/liquid/weak/*
+#%dir %{_datadir}/themes/superkaramba/liquid_weather_plus
+%{_datadir}/themes/superkaramba/liquid_weather_plus/
