@@ -1,16 +1,16 @@
-#$Revision: 1.16 $,  $Date: 2005-04-11 09:20:15 $
+#$Revision: 1.17 $,  $Date: 2005-04-23 07:26:03 $
 
 %define		theme	LiquidWeatherPlus
 
 Summary:	superkaramba - LiquidWeatherPlus theme
 Summary(pl):	superkaramba - motyw LiquidWeatherPlus
 Name:		superkaramba-theme-%{theme}
-Version:	3.11
+Version:	4.0
 Release:	1
 License:	GPL
 Group:		Themes
 Source0:	http://www.message.co.nz/~matt-sarah/lwp-%{version}.tar.bz2
-# Source0-md5:	e13c2af73a80858ad16eb4542ab89187
+# Source0-md5:	ef354fb0ff94a3c8b2ff62ed3653e581
 URL:		http://www.message.co.nz/~matt-sarah/
 Requires:	superkaramba >= 0.35
 BuildArch:	noarch
@@ -22,8 +22,7 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
 LiquidWeatherPlus theme for superkaramba. Features:
- - Weather forecasts from weather.com or BBC for most cities
-   worldwide.
+ - Weather forecasts from weather.com or BBC for most cities worldwide.
  - Details of current conditions.
  - Daily forecasts and weather details for today and the following 4
    days.
@@ -57,15 +56,13 @@ Motyw LiquidWeatherPlus do superkaramby. Wy¶wietlane informacje:
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_datadir}%{_liquiddir} \
-	$RPM_BUILD_ROOT%{_datadir}%{_liquiddir}/{background,earthquake,fonts,readme{,/images},translations} \
+	$RPM_BUILD_ROOT%{_datadir}%{_liquiddir}/{background,earthquake,fonts,translations} \
 	$RPM_BUILD_ROOT%{_datadir}%{_liquiddir}/icons/{flat,liquid,um,weather.com}/{large_icons,small_icons} \
-	$RPM_BUILD_ROOT%{_datadir}%{_liquiddir}/wind_icons/{flat,liquid}/{medium,strong,weak} 
+	$RPM_BUILD_ROOT%{_datadir}%{_liquiddir}/wind_icons/{flat,liquid}/{medium,strong,weak}
 install %{_lwp}/*.{html,log,py*,png,theme,txt} $RPM_BUILD_ROOT%{_datadir}%{_liquiddir}
 install %{_lwp}/background/*.png $RPM_BUILD_ROOT%{_datadir}%{_liquiddir}/background
 install %{_lwp}/earthquake/*.{html,css} $RPM_BUILD_ROOT%{_datadir}%{_liquiddir}/earthquake
 install %{_lwp}/fonts/*.ttf $RPM_BUILD_ROOT%{_datadir}%{_liquiddir}/fonts
-install %{_lwp}/readme/*.{html,css} $RPM_BUILD_ROOT%{_datadir}%{_liquiddir}/readme
-install %{_lwp}/readme/images/*.jpg $RPM_BUILD_ROOT%{_datadir}%{_liquiddir}/readme/images
 install %{_lwp}/translations/* $RPM_BUILD_ROOT%{_datadir}%{_liquiddir}/translations
 
 for www in {flat,liquid,um,weather.com};
@@ -83,7 +80,7 @@ done
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%files 
+%files
 %defattr(644,root,root,755)
 
 %{_datadir}%{_liquiddir}/
