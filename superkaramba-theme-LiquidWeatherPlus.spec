@@ -1,16 +1,16 @@
-#$Revision: 1.18 $,  $Date: 2005-04-27 20:42:00 $
+#$Revision: 1.19 $,  $Date: 2005-04-30 12:46:04 $
 
 %define		theme	LiquidWeatherPlus
 
 Summary:	superkaramba - LiquidWeatherPlus theme
 Summary(pl):	superkaramba - motyw LiquidWeatherPlus
 Name:		superkaramba-theme-%{theme}
-Version:	4.1.1
+Version:	4.2
 Release:	1
 License:	GPL
 Group:		Themes
 Source0:	http://www.message.co.nz/~matt-sarah/lwp-%{version}.tar.bz2
-# Source0-md5:	ac0182f37b705e573eb61e09e08e76cc
+# Source0-md5:	d64833c8f1427fc78131f78b6c5f365e
 URL:		http://www.message.co.nz/~matt-sarah/
 Requires:	superkaramba >= 0.35
 BuildArch:	noarch
@@ -59,7 +59,7 @@ install -d $RPM_BUILD_ROOT%{_datadir}%{_liquiddir} \
 	$RPM_BUILD_ROOT%{_datadir}%{_liquiddir}/{background,earthquake,fonts,translations} \
 	$RPM_BUILD_ROOT%{_datadir}%{_liquiddir}/icons/{flat,liquid,um,weather.com}/{large_icons,small_icons} \
 	$RPM_BUILD_ROOT%{_datadir}%{_liquiddir}/wind_icons/{flat,liquid}/{medium,strong,weak}
-install %{_lwp}/*.{html,log,py*,png,theme,txt} $RPM_BUILD_ROOT%{_datadir}%{_liquiddir}
+install %{_lwp}/*.{py*,png,theme,txt} $RPM_BUILD_ROOT%{_datadir}%{_liquiddir}
 install %{_lwp}/background/*.png $RPM_BUILD_ROOT%{_datadir}%{_liquiddir}/background
 install %{_lwp}/earthquake/*.{html,css} $RPM_BUILD_ROOT%{_datadir}%{_liquiddir}/earthquake
 install %{_lwp}/fonts/*.ttf $RPM_BUILD_ROOT%{_datadir}%{_liquiddir}/fonts
