@@ -1,16 +1,16 @@
-#$Revision: 1.19 $,  $Date: 2005-04-30 12:46:04 $
+#$Revision: 1.20 $,  $Date: 2005-05-04 16:06:38 $
 
 %define		theme	LiquidWeatherPlus
 
 Summary:	superkaramba - LiquidWeatherPlus theme
 Summary(pl):	superkaramba - motyw LiquidWeatherPlus
 Name:		superkaramba-theme-%{theme}
-Version:	4.2
+Version:	5.0
 Release:	1
 License:	GPL
 Group:		Themes
 Source0:	http://www.message.co.nz/~matt-sarah/lwp-%{version}.tar.bz2
-# Source0-md5:	d64833c8f1427fc78131f78b6c5f365e
+# Source0-md5:	70286b8162901eb80c319da9b89cb295
 URL:		http://www.message.co.nz/~matt-sarah/
 Requires:	superkaramba >= 0.35
 BuildArch:	noarch
@@ -57,15 +57,17 @@ Motyw LiquidWeatherPlus do superkaramby. Wy¶wietlane informacje:
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_datadir}%{_liquiddir} \
 	$RPM_BUILD_ROOT%{_datadir}%{_liquiddir}/{background,earthquake,fonts,translations} \
-	$RPM_BUILD_ROOT%{_datadir}%{_liquiddir}/icons/{flat,liquid,um,weather.com}/{large_icons,small_icons} \
+	$RPM_BUILD_ROOT%{_datadir}%{_liquiddir}/icons/{Liquid,Umicons}/{large_icons,small_icons} \
 	$RPM_BUILD_ROOT%{_datadir}%{_liquiddir}/wind_icons/{flat,liquid}/{medium,strong,weak}
 install %{_lwp}/*.{py*,png,theme,txt} $RPM_BUILD_ROOT%{_datadir}%{_liquiddir}
 install %{_lwp}/background/*.png $RPM_BUILD_ROOT%{_datadir}%{_liquiddir}/background
 install %{_lwp}/earthquake/*.{html,css} $RPM_BUILD_ROOT%{_datadir}%{_liquiddir}/earthquake
 install %{_lwp}/fonts/*.ttf $RPM_BUILD_ROOT%{_datadir}%{_liquiddir}/fonts
 install %{_lwp}/translations/* $RPM_BUILD_ROOT%{_datadir}%{_liquiddir}/translations
+install %{_lwp}/wind_icons/flat/*.png $RPM_BUILD_ROOT%{_datadir}%{_liquiddir}/wind_icons/flat
+install %{_lwp}/wind_icons/liquid/*.png $RPM_BUILD_ROOT%{_datadir}%{_liquiddir}/wind_icons/liquid
 
-for www in {flat,liquid,um,weather.com};
+for www in {Liquid,Umicons};
  do
 install %{_lwp}/icons/$www/large_icons/*.png $RPM_BUILD_ROOT%{_datadir}%{_liquiddir}/icons/$www/large_icons
 install %{_lwp}/icons/$www/small_icons/*.png $RPM_BUILD_ROOT%{_datadir}%{_liquiddir}/icons/$www/small_icons
