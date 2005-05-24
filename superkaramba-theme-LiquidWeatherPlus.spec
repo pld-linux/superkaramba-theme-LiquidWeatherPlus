@@ -1,4 +1,4 @@
-#$Revision: 1.22 $,  $Date: 2005-05-23 22:31:43 $
+#$Revision: 1.23 $,  $Date: 2005-05-24 21:51:14 $
 
 %define		theme	LiquidWeatherPlus
 
@@ -12,7 +12,7 @@ Group:		Themes
 Source0:	http://www.message.co.nz/~matt-sarah/lwp-%{version}.tar.bz2
 # Source0-md5:	ee947427b5ce85c0eb8e86295e031a7e
 URL:		http://www.message.co.nz/~matt-sarah/
-Requires:	superkaramba >= 0.35
+Requires:	superkaramba >= 0.36
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %define _liquiddir /themes/superkaramba/liquid_weather_plus
