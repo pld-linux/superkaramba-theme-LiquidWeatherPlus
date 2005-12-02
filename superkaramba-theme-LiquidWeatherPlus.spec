@@ -1,18 +1,20 @@
-#$Revision: 1.24 $,  $Date: 2005-06-08 16:30:15 $
+#$Revision: 1.25 $,  $Date: 2005-12-02 21:18:21 $
+# TODO
+# - other languages doesn't work (problem with gettext.py - not found)
 
 %define		theme	LiquidWeatherPlus
 
 Summary:	superkaramba - LiquidWeatherPlus theme
 Summary(pl):	superkaramba - motyw LiquidWeatherPlus
 Name:		superkaramba-theme-%{theme}
-Version:	6.2
-Release:	1
+Version:	8.7.2
+Release:	0.9
 License:	GPL
 Group:		Themes
-Source0:	http://www.message.co.nz/~matt-sarah/lwp-%{version}.tar.bz2
-# Source0-md5:	7c7652ca57b463103eb593ac743a274f
+Source0:	http://www.message.co.nz/~matt-sarah/lwp-%{version}.skz
+# Source0-md5:	de189c382ce2ba6827c043984d844d46
 URL:		http://www.message.co.nz/~matt-sarah/
-Requires:	superkaramba >= 0.36
+Requires:	superkaramba >= 0.37
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %define _liquiddir /themes/superkaramba/liquid_weather_plus
@@ -53,36 +55,41 @@ Motyw LiquidWeatherPlus do superkaramby. Wy¶wietlane informacje:
 %prep
 %setup -q -c
 
+%build
+%{__make}
+
 %install
 rm -rf $RPM_BUILD_ROOT
+
 install -d $RPM_BUILD_ROOT%{_datadir}%{_liquiddir} \
 	$RPM_BUILD_ROOT%{_datadir}%{_liquiddir}/{background,earthquake,fonts,translations} \
 	$RPM_BUILD_ROOT%{_datadir}%{_liquiddir}/icons/{Liquid,Umicons}/{large_icons,small_icons} \
 	$RPM_BUILD_ROOT%{_datadir}%{_liquiddir}/wind_icons/{flat,liquid}/{medium,strong,weak}
-install %{_lwp}/*.{py,pyc,png,theme,txt} $RPM_BUILD_ROOT%{_datadir}%{_liquiddir}
-install %{_lwp}/background/*.png $RPM_BUILD_ROOT%{_datadir}%{_liquiddir}/background
-install %{_lwp}/earthquake/*.{html,css} $RPM_BUILD_ROOT%{_datadir}%{_liquiddir}/earthquake
-install %{_lwp}/fonts/*.ttf $RPM_BUILD_ROOT%{_datadir}%{_liquiddir}/fonts
-install %{_lwp}/translations/* $RPM_BUILD_ROOT%{_datadir}%{_liquiddir}/translations
-install %{_lwp}/wind_icons/flat/*.png $RPM_BUILD_ROOT%{_datadir}%{_liquiddir}/wind_icons/flat
-install %{_lwp}/wind_icons/liquid/*.png $RPM_BUILD_ROOT%{_datadir}%{_liquiddir}/wind_icons/liquid
+install *.{py,pyc,png,theme,ui} $RPM_BUILD_ROOT%{_datadir}%{_liquiddir}
+install background/*.png $RPM_BUILD_ROOT%{_datadir}%{_liquiddir}/background
+install earthquake/*.{html,css} $RPM_BUILD_ROOT%{_datadir}%{_liquiddir}/earthquake
+install fonts/*.ttf $RPM_BUILD_ROOT%{_datadir}%{_liquiddir}/fonts
+cp -r locale/ $RPM_BUILD_ROOT%{_datadir}
+install wind_icons/flat/*.png $RPM_BUILD_ROOT%{_datadir}%{_liquiddir}/wind_icons/flat
+install wind_icons/liquid/*.png $RPM_BUILD_ROOT%{_datadir}%{_liquiddir}/wind_icons/liquid
 
 for www in {Liquid,Umicons};
  do
-install %{_lwp}/icons/$www/large_icons/*.png $RPM_BUILD_ROOT%{_datadir}%{_liquiddir}/icons/$www/large_icons
-install %{_lwp}/icons/$www/small_icons/*.png $RPM_BUILD_ROOT%{_datadir}%{_liquiddir}/icons/$www/small_icons
+install icons/$www/large_icons/*.png $RPM_BUILD_ROOT%{_datadir}%{_liquiddir}/icons/$www/large_icons
+install icons/$www/small_icons/*.png $RPM_BUILD_ROOT%{_datadir}%{_liquiddir}/icons/$www/small_icons
 done
 
 for www in {medium,strong,weak};
  do
-install %{_lwp}/wind_icons/flat/$www/*.png $RPM_BUILD_ROOT%{_datadir}%{_liquiddir}/wind_icons/flat/$www
-install %{_lwp}/wind_icons/liquid/$www/*.png $RPM_BUILD_ROOT%{_datadir}%{_liquiddir}/wind_icons/liquid/$www
+install wind_icons/flat/$www/*.png $RPM_BUILD_ROOT%{_datadir}%{_liquiddir}/wind_icons/flat/$www
+install wind_icons/liquid/$www/*.png $RPM_BUILD_ROOT%{_datadir}%{_liquiddir}/wind_icons/liquid/$www
 done
+
+%find_lang liquid_weather --with-kde
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%files
+%files -f liquid_weather.lang
 %defattr(644,root,root,755)
-
 %{_datadir}%{_liquiddir}/
