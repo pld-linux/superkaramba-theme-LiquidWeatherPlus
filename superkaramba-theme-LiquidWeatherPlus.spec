@@ -1,18 +1,16 @@
-#$Revision: 1.25 $,  $Date: 2005-12-02 21:18:21 $
-# TODO
-# - other languages doesn't work (problem with gettext.py - not found)
+#$Revision: 1.26 $,  $Date: 2006-01-18 13:02:52 $
 
 %define		theme	LiquidWeatherPlus
 
 Summary:	superkaramba - LiquidWeatherPlus theme
 Summary(pl):	superkaramba - motyw LiquidWeatherPlus
 Name:		superkaramba-theme-%{theme}
-Version:	8.7.2
-Release:	0.9
+Version:	8.9.2
+Release:	2
 License:	GPL
 Group:		Themes
 Source0:	http://www.message.co.nz/~matt-sarah/lwp-%{version}.skz
-# Source0-md5:	de189c382ce2ba6827c043984d844d46
+# Source0-md5:	ff322cb338ae2cfe290818b2321d0145
 URL:		http://www.message.co.nz/~matt-sarah/
 Requires:	superkaramba >= 0.37
 BuildArch:	noarch
@@ -62,10 +60,11 @@ Motyw LiquidWeatherPlus do superkaramby. Wy¶wietlane informacje:
 rm -rf $RPM_BUILD_ROOT
 
 install -d $RPM_BUILD_ROOT%{_datadir}%{_liquiddir} \
-	$RPM_BUILD_ROOT%{_datadir}%{_liquiddir}/{background,earthquake,fonts,translations} \
+	$RPM_BUILD_ROOT%{_datadir}%{_liquiddir}/{background,earthquake,fonts} \
 	$RPM_BUILD_ROOT%{_datadir}%{_liquiddir}/icons/{Liquid,Umicons}/{large_icons,small_icons} \
 	$RPM_BUILD_ROOT%{_datadir}%{_liquiddir}/wind_icons/{flat,liquid}/{medium,strong,weak}
-install *.{py,pyc,png,theme,ui} $RPM_BUILD_ROOT%{_datadir}%{_liquiddir}
+install *.{html,pot,py,pyc,png,theme,ui,xml} $RPM_BUILD_ROOT%{_datadir}%{_liquiddir}
+install trans_snippet $RPM_BUILD_ROOT%{_datadir}%{_liquiddir}
 install background/*.png $RPM_BUILD_ROOT%{_datadir}%{_liquiddir}/background
 install earthquake/*.{html,css} $RPM_BUILD_ROOT%{_datadir}%{_liquiddir}/earthquake
 install fonts/*.ttf $RPM_BUILD_ROOT%{_datadir}%{_liquiddir}/fonts
@@ -84,6 +83,14 @@ for www in {medium,strong,weak};
 install wind_icons/flat/$www/*.png $RPM_BUILD_ROOT%{_datadir}%{_liquiddir}/wind_icons/flat/$www
 install wind_icons/liquid/$www/*.png $RPM_BUILD_ROOT%{_datadir}%{_liquiddir}/wind_icons/liquid/$www
 done
+
+#cleaning
+rm $RPM_BUILD_ROOT%{_datadir}/locale/*/LC_MESSAGES/liquid_weather.po*
+
+# locale hack
+cd $RPM_BUILD_ROOT%{_datadir}%{_liquiddir}
+ln -s ../../../locale/ locale 
+cd -
 
 %find_lang liquid_weather --with-kde
 
