@@ -1,16 +1,16 @@
-#$Revision: 1.27 $,  $Date: 2006-01-25 16:07:15 $
+#$Revision: 1.28 $,  $Date: 2006-01-25 22:46:50 $
 
 %define		theme	LiquidWeatherPlus
 
 Summary:	superkaramba - LiquidWeatherPlus theme
 Summary(pl):	superkaramba - motyw LiquidWeatherPlus
 Name:		superkaramba-theme-%{theme}
-Version:	8.9.2
-Release:	3
+Version:	9.2
+Release:	1
 License:	GPL
 Group:		Themes
 Source0:	http://www.message.co.nz/~matt-sarah/lwp-%{version}.skz
-# Source0-md5:	ff322cb338ae2cfe290818b2321d0145
+# Source0-md5:	b62d060f0cec8519bd57135d76384226
 Source1:	http://mirrors.borgnet.us/matt-lw/Glossy.tar.bz2
 # Source1-md5:	f56593dccd5086a23f6b545c4663325f
 Source2:	http://mirrors.borgnet.us/matt-lw/Kapsules.tar.bz2
@@ -23,8 +23,6 @@ BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %define _liquiddir /themes/superkaramba/liquid_weather_plus
  #directory in rpm
-%define _lwp liquid_weather_plus
- #directory in source
 
 %description
 LiquidWeatherPlus theme for superkaramba. Features:
@@ -56,65 +54,55 @@ Motyw LiquidWeatherPlus do superkaramby. Wy¶wietlane informacje:
  - Ró¿ne rodzaje t³a oraz motywy ikon.
  - Graficzna konfiguracja przez menu konfiguracyjne.
 
-%prep
-%setup -q -c
+%package icons-Glossy
+Summary:        Glossy icons set for Liquid Weather Plus theme
+Summary(pl):    Ikony Glossy dla motywu Liquid Weather Plus
+Group:          Themes
+Requires:       %{name} = %{version}-%{release}
 
-%build
-%{__make}
+%description icons-Glossy
+Glossy icons set for Liquid Weather Plus theme.
+
+%description icons-Glossy -l pl
+Ikony Glossy dla motywu Liquid Weather Plus.
+
+%package icons-Kapsules
+Summary:        Kapsules icons set for Liquid Weather Plus theme
+Summary(pl):    Ikony Kapsules dla motywu Liquid Weather Plus
+Group:          Themes
+Requires:       %{name} = %{version}-%{release}
+
+%description icons-Kapsules
+Kapsules icons set for Liquid Weather Plus theme.
+
+%description icons-Kapsules -l pl
+Ikony Kapsules dla motywu Liquid Weather Plus.
 
 %install
 rm -rf $RPM_BUILD_ROOT
 
 install -d $RPM_BUILD_ROOT%{_datadir}%{_liquiddir} \
-	$RPM_BUILD_ROOT%{_datadir}%{_liquiddir}/{earthquake,fonts,moon_icons} \
-	$RPM_BUILD_ROOT%{_datadir}%{_liquiddir}/icons/{Glossy,Kapsules,Liquid,Umicons}/{large_icons,small_icons} \
-	$RPM_BUILD_ROOT%{_datadir}%{_liquiddir}/wind_icons/{flat,liquid}/{medium,strong,weak}
-install *.{html,pot,py,pyc,png,theme,ui,xml} $RPM_BUILD_ROOT%{_datadir}%{_liquiddir}
-install trans_snippet $RPM_BUILD_ROOT%{_datadir}%{_liquiddir}
-#install background/*.png $RPM_BUILD_ROOT%{_datadir}%{_liquiddir}/background
-install earthquake/*.{html,css} $RPM_BUILD_ROOT%{_datadir}%{_liquiddir}/earthquake
-install fonts/*.ttf $RPM_BUILD_ROOT%{_datadir}%{_liquiddir}/fonts
-#install moon_icons/*.png $RPM_BUILD_ROOT%{_datadir}%{_liquiddir}/moon_icons
-# moon_icons will be added in 9.2 (but 9.2 is buggy)
+	$RPM_BUILD_ROOT%{_datadir}%{_liquiddir}/icons/{Glossy,Kapsules}/{large_icons,small_icons} \
 
-cp -r locale/ $RPM_BUILD_ROOT%{_datadir}
-
-install wind_icons/flat/*.png $RPM_BUILD_ROOT%{_datadir}%{_liquiddir}/wind_icons/flat
-install wind_icons/liquid/*.png $RPM_BUILD_ROOT%{_datadir}%{_liquiddir}/wind_icons/liquid
-# directory contains subfolders wig  spaces and "(", ")", so cp -r is easest way to copy.
-cp -r background/  $RPM_BUILD_ROOT%{_datadir}%{_liquiddir}/background/
+install %{SOURCE0} $RPM_BUILD_ROOT%{_datadir}%{_liquiddir}/lwp.skz
 
 # install Glossy,Kapsules icons
-cd  icons/
+cd  $RPM_BUILD_ROOT%{_datadir}%{_liquiddir}/icons/
 tar fvxj %{SOURCE1}
 tar fvxj %{SOURCE2}
 cd -
 
-for www in {Glossy,Kapsules,Liquid,Umicons};
- do
-install icons/$www/large_icons/*.png $RPM_BUILD_ROOT%{_datadir}%{_liquiddir}/icons/$www/large_icons
-install icons/$www/small_icons/*.png $RPM_BUILD_ROOT%{_datadir}%{_liquiddir}/icons/$www/small_icons
-done
-
-for www in {medium,strong,weak};
- do
-install wind_icons/flat/$www/*.png $RPM_BUILD_ROOT%{_datadir}%{_liquiddir}/wind_icons/flat/$www
-install wind_icons/liquid/$www/*.png $RPM_BUILD_ROOT%{_datadir}%{_liquiddir}/wind_icons/liquid/$www
-done
-
-#cleaning
-rm $RPM_BUILD_ROOT%{_datadir}/locale/*/LC_MESSAGES/liquid_weather.po*
-
-# locale hack
-cd $RPM_BUILD_ROOT%{_datadir}%{_liquiddir}
-ln -s ../../../locale/ locale 
-cd -
-
-%find_lang liquid_weather --with-kde
-
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%files -f liquid_weather.lang
+%files 
 %defattr(644,root,root,755)
-%{_datadir}%{_liquiddir}/
+%{_datadir}%{_liquiddir}/lwp.skz
+
+%files icons-Glossy
+%defattr(644,root,root,755)
+%{_datadir}%{_liquiddir}/icons/Glossy/
+
+%files icons-Kapsules
+%defattr(644,root,root,755)
+%{_datadir}%{_liquiddir}/icons/Kapsules/
