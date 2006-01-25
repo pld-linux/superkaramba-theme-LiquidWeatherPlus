@@ -1,4 +1,4 @@
-#$Revision: 1.26 $,  $Date: 2006-01-18 13:02:52 $
+#$Revision: 1.27 $,  $Date: 2006-01-25 16:07:15 $
 
 %define		theme	LiquidWeatherPlus
 
@@ -6,12 +6,18 @@ Summary:	superkaramba - LiquidWeatherPlus theme
 Summary(pl):	superkaramba - motyw LiquidWeatherPlus
 Name:		superkaramba-theme-%{theme}
 Version:	8.9.2
-Release:	2
+Release:	3
 License:	GPL
 Group:		Themes
 Source0:	http://www.message.co.nz/~matt-sarah/lwp-%{version}.skz
 # Source0-md5:	ff322cb338ae2cfe290818b2321d0145
-URL:		http://www.message.co.nz/~matt-sarah/
+Source1:	http://mirrors.borgnet.us/matt-lw/Glossy.tar.bz2
+# Source1-md5:	f56593dccd5086a23f6b545c4663325f
+Source2:	http://mirrors.borgnet.us/matt-lw/Kapsules.tar.bz2
+# Source2-md5:	e7fcffa5f00914117926b963ca80095b
+URL:		http://liquidweather.net/
+Requires:	ImageMagick
+Requires:	python-PyQt >= 3.13
 Requires:	superkaramba >= 0.37
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -60,19 +66,31 @@ Motyw LiquidWeatherPlus do superkaramby. Wy¶wietlane informacje:
 rm -rf $RPM_BUILD_ROOT
 
 install -d $RPM_BUILD_ROOT%{_datadir}%{_liquiddir} \
-	$RPM_BUILD_ROOT%{_datadir}%{_liquiddir}/{background,earthquake,fonts} \
-	$RPM_BUILD_ROOT%{_datadir}%{_liquiddir}/icons/{Liquid,Umicons}/{large_icons,small_icons} \
+	$RPM_BUILD_ROOT%{_datadir}%{_liquiddir}/{earthquake,fonts,moon_icons} \
+	$RPM_BUILD_ROOT%{_datadir}%{_liquiddir}/icons/{Glossy,Kapsules,Liquid,Umicons}/{large_icons,small_icons} \
 	$RPM_BUILD_ROOT%{_datadir}%{_liquiddir}/wind_icons/{flat,liquid}/{medium,strong,weak}
 install *.{html,pot,py,pyc,png,theme,ui,xml} $RPM_BUILD_ROOT%{_datadir}%{_liquiddir}
 install trans_snippet $RPM_BUILD_ROOT%{_datadir}%{_liquiddir}
-install background/*.png $RPM_BUILD_ROOT%{_datadir}%{_liquiddir}/background
+#install background/*.png $RPM_BUILD_ROOT%{_datadir}%{_liquiddir}/background
 install earthquake/*.{html,css} $RPM_BUILD_ROOT%{_datadir}%{_liquiddir}/earthquake
 install fonts/*.ttf $RPM_BUILD_ROOT%{_datadir}%{_liquiddir}/fonts
+#install moon_icons/*.png $RPM_BUILD_ROOT%{_datadir}%{_liquiddir}/moon_icons
+# moon_icons will be added in 9.2 (but 9.2 is buggy)
+
 cp -r locale/ $RPM_BUILD_ROOT%{_datadir}
+
 install wind_icons/flat/*.png $RPM_BUILD_ROOT%{_datadir}%{_liquiddir}/wind_icons/flat
 install wind_icons/liquid/*.png $RPM_BUILD_ROOT%{_datadir}%{_liquiddir}/wind_icons/liquid
+# directory contains subfolders wig  spaces and "(", ")", so cp -r is easest way to copy.
+cp -r background/  $RPM_BUILD_ROOT%{_datadir}%{_liquiddir}/background/
 
-for www in {Liquid,Umicons};
+# install Glossy,Kapsules icons
+cd  icons/
+tar fvxj %{SOURCE1}
+tar fvxj %{SOURCE2}
+cd -
+
+for www in {Glossy,Kapsules,Liquid,Umicons};
  do
 install icons/$www/large_icons/*.png $RPM_BUILD_ROOT%{_datadir}%{_liquiddir}/icons/$www/large_icons
 install icons/$www/small_icons/*.png $RPM_BUILD_ROOT%{_datadir}%{_liquiddir}/icons/$www/small_icons
