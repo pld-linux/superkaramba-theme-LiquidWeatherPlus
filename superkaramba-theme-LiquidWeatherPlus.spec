@@ -1,4 +1,3 @@
-#$Revision: 1.28 $,  $Date: 2006-01-25 22:46:50 $
 
 %define		theme	LiquidWeatherPlus
 
@@ -21,8 +20,8 @@ Requires:	python-PyQt >= 3.13
 Requires:	superkaramba >= 0.37
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
-%define _liquiddir /themes/superkaramba/liquid_weather_plus
- #directory in rpm
+
+%define		_liquiddir	/themes/superkaramba/liquid_weather_plus
 
 %description
 LiquidWeatherPlus theme for superkaramba. Features:
@@ -55,10 +54,10 @@ Motyw LiquidWeatherPlus do superkaramby. Wy¶wietlane informacje:
  - Graficzna konfiguracja przez menu konfiguracyjne.
 
 %package icons-Glossy
-Summary:        Glossy icons set for Liquid Weather Plus theme
-Summary(pl):    Ikony Glossy dla motywu Liquid Weather Plus
-Group:          Themes
-Requires:       %{name} = %{version}-%{release}
+Summary:	Glossy icons set for Liquid Weather Plus theme
+Summary(pl):	Ikony Glossy dla motywu Liquid Weather Plus
+Group:		Themes
+Requires:	%{name} = %{version}-%{release}
 
 %description icons-Glossy
 Glossy icons set for Liquid Weather Plus theme.
@@ -67,16 +66,18 @@ Glossy icons set for Liquid Weather Plus theme.
 Ikony Glossy dla motywu Liquid Weather Plus.
 
 %package icons-Kapsules
-Summary:        Kapsules icons set for Liquid Weather Plus theme
-Summary(pl):    Ikony Kapsules dla motywu Liquid Weather Plus
-Group:          Themes
-Requires:       %{name} = %{version}-%{release}
+Summary:	Kapsules icons set for Liquid Weather Plus theme
+Summary(pl):	Ikony Kapsules dla motywu Liquid Weather Plus
+Group:		Themes
+Requires:	%{name} = %{version}-%{release}
 
 %description icons-Kapsules
 Kapsules icons set for Liquid Weather Plus theme.
 
 %description icons-Kapsules -l pl
 Ikony Kapsules dla motywu Liquid Weather Plus.
+
+%prep
 
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -87,7 +88,7 @@ install -d $RPM_BUILD_ROOT%{_datadir}%{_liquiddir} \
 install %{SOURCE0} $RPM_BUILD_ROOT%{_datadir}%{_liquiddir}/lwp.skz
 
 # install Glossy,Kapsules icons
-cd  $RPM_BUILD_ROOT%{_datadir}%{_liquiddir}/icons/
+cd  $RPM_BUILD_ROOT%{_datadir}%{_liquiddir}/icons
 tar fvxj %{SOURCE1}
 tar fvxj %{SOURCE2}
 cd -
@@ -97,12 +98,14 @@ rm -rf $RPM_BUILD_ROOT
 
 %files 
 %defattr(644,root,root,755)
+%dir %{_datadir}%{_liquiddir}
 %{_datadir}%{_liquiddir}/lwp.skz
+%dir %{_datadir}%{_liquiddir}/icons
 
 %files icons-Glossy
 %defattr(644,root,root,755)
-%{_datadir}%{_liquiddir}/icons/Glossy/
+%{_datadir}%{_liquiddir}/icons/Glossy
 
 %files icons-Kapsules
 %defattr(644,root,root,755)
-%{_datadir}%{_liquiddir}/icons/Kapsules/
+%{_datadir}%{_liquiddir}/icons/Kapsules
