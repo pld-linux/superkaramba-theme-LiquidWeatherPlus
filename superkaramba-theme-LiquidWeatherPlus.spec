@@ -4,12 +4,12 @@
 Summary:	superkaramba - LiquidWeatherPlus theme
 Summary(pl):	superkaramba - motyw LiquidWeatherPlus
 Name:		superkaramba-theme-%{theme}
-Version:	10.0
+Version:	10.1
 Release:	1
 License:	GPL
 Group:		Themes
 Source0:	http://www.message.co.nz/~matt-sarah/lwp-%{version}.skz
-# Source0-md5:	bb9449b7a284e286255ddda7d29517ed
+# Source0-md5:	d8e8a4d94adc81ca4a4f42fefdb0bc69
 Source1:	http://mirrors.borgnet.us/matt-lw/Glossy.tar.bz2
 # Source1-md5:	f56593dccd5086a23f6b545c4663325f
 Source2:	http://mirrors.borgnet.us/matt-lw/Kapsules.tar.bz2
@@ -17,6 +17,7 @@ Source2:	http://mirrors.borgnet.us/matt-lw/Kapsules.tar.bz2
 URL:		http://liquidweather.net/
 Requires:	ImageMagick
 Requires:	python-PyQt >= 3.13
+Requires:	python-sip
 Requires:	superkaramba >= 0.37
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
