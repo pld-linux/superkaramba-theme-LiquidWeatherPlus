@@ -4,12 +4,12 @@
 Summary:	superkaramba - LiquidWeatherPlus theme
 Summary(pl):	superkaramba - motyw LiquidWeatherPlus
 Name:		superkaramba-theme-%{theme}
-Version:	11.0
+Version:	11.2
 Release:	1
 License:	GPL
 Group:		Themes
 Source0:	http://www.message.co.nz/~matt-sarah/lwp-%{version}.skz
-# Source0-md5:	cb9df0aa574fe1454df62d727434cc49
+# Source0-md5:	d24e6182dd323f232cea53a6a9053ee5
 Source1:	http://mirrors.borgnet.us/matt-lw/Glossy.tar.bz2
 # Source1-md5:	f56593dccd5086a23f6b545c4663325f
 Source2:	http://mirrors.borgnet.us/matt-lw/Kapsules.tar.bz2
