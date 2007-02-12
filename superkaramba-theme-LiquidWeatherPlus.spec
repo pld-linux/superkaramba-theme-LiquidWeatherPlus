@@ -2,7 +2,7 @@
 %define		theme	LiquidWeatherPlus
 
 Summary:	superkaramba - LiquidWeatherPlus theme
-Summary(pl):	superkaramba - motyw LiquidWeatherPlus
+Summary(pl.UTF-8):   superkaramba - motyw LiquidWeatherPlus
 Name:		superkaramba-theme-%{theme}
 Version:	14.0
 Release:	1
@@ -39,43 +39,43 @@ LiquidWeatherPlus theme for superkaramba. Features:
  - Multiple background and icon themes.
  - Gui configuration for everything through the configuration menu.
 
-%description -l pl
-Motyw LiquidWeatherPlus do superkaramby. Wy¶wietlane informacje:
- - Prognoza pogody z weather.com oraz BBC z wiêkszo¶ci miast ¶wiata.
+%description -l pl.UTF-8
+Motyw LiquidWeatherPlus do superkaramby. WyÅ›wietlane informacje:
+ - Prognoza pogody z weather.com oraz BBC z wiÄ™kszoÅ›ci miast Å›wiata.
  - Warunki pogodowe.
- - Zapowied¼ pogody oraz szczególy dla aktualnego dnia oraz nastêpnych
+ - ZapowiedÅº pogody oraz szczegÃ³ly dla aktualnego dnia oraz nastÄ™pnych
    czterech dni.
- - Przewidywanie pogody dla nastêpnych 12 godzin, je¿eli u¿ywamy
-   weather.com jako ¼ród³o danych.
- - Wszystkie rodzaje ró¿nych map pogody dla wszystkich wa¿niejszych
-   rejonów, równie¿ Antarktyki.
+ - Przewidywanie pogody dla nastÄ™pnych 12 godzin, jeÅ¼eli uÅ¼ywamy
+   weather.com jako ÅºrÃ³dÅ‚o danych.
+ - Wszystkie rodzaje rÃ³Å¼nych map pogody dla wszystkich waÅ¼niejszych
+   rejonÃ³w, rÃ³wnieÅ¼ Antarktyki.
  - Widok z 5 kamer internetowych.
- - Wszystkie dane uaktualniane s± co 1, 2 lub 3 godziny.
- - Ró¿ne rodzaje t³a oraz motywy ikon.
+ - Wszystkie dane uaktualniane sÄ… co 1, 2 lub 3 godziny.
+ - RÃ³Å¼ne rodzaje tÅ‚a oraz motywy ikon.
  - Graficzna konfiguracja przez menu konfiguracyjne.
 
 %package icons-Glossy
 Summary:	Glossy icons set for Liquid Weather Plus theme
-Summary(pl):	Ikony Glossy dla motywu Liquid Weather Plus
+Summary(pl.UTF-8):   Ikony Glossy dla motywu Liquid Weather Plus
 Group:		Themes
 Requires:	%{name} = %{version}-%{release}
 
 %description icons-Glossy
 Glossy icons set for Liquid Weather Plus theme.
 
-%description icons-Glossy -l pl
+%description icons-Glossy -l pl.UTF-8
 Ikony Glossy dla motywu Liquid Weather Plus.
 
 %package icons-Kapsules
 Summary:	Kapsules icons set for Liquid Weather Plus theme
-Summary(pl):	Ikony Kapsules dla motywu Liquid Weather Plus
+Summary(pl.UTF-8):   Ikony Kapsules dla motywu Liquid Weather Plus
 Group:		Themes
 Requires:	%{name} = %{version}-%{release}
 
 %description icons-Kapsules
 Kapsules icons set for Liquid Weather Plus theme.
 
-%description icons-Kapsules -l pl
+%description icons-Kapsules -l pl.UTF-8
 Ikony Kapsules dla motywu Liquid Weather Plus.
 
 %prep
