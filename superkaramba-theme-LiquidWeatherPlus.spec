@@ -2,7 +2,7 @@
 %define		theme	LiquidWeatherPlus
 
 Summary:	superkaramba - LiquidWeatherPlus theme
-Summary(pl.UTF-8):   superkaramba - motyw LiquidWeatherPlus
+Summary(pl.UTF-8):	superkaramba - motyw LiquidWeatherPlus
 Name:		superkaramba-theme-%{theme}
 Version:	14.0
 Release:	1
@@ -56,7 +56,7 @@ Motyw LiquidWeatherPlus do superkaramby. Wyświetlane informacje:
 
 %package icons-Glossy
 Summary:	Glossy icons set for Liquid Weather Plus theme
-Summary(pl.UTF-8):   Ikony Glossy dla motywu Liquid Weather Plus
+Summary(pl.UTF-8):	Ikony Glossy dla motywu Liquid Weather Plus
 Group:		Themes
 Requires:	%{name} = %{version}-%{release}
 
@@ -68,7 +68,7 @@ Ikony Glossy dla motywu Liquid Weather Plus.
 
 %package icons-Kapsules
 Summary:	Kapsules icons set for Liquid Weather Plus theme
-Summary(pl.UTF-8):   Ikony Kapsules dla motywu Liquid Weather Plus
+Summary(pl.UTF-8):	Ikony Kapsules dla motywu Liquid Weather Plus
 Group:		Themes
 Requires:	%{name} = %{version}-%{release}
 
